@@ -1,42 +1,30 @@
-Setup:
-mkdir server
-cd server
-npm init -y
+# MERN Social Media & Task Manager Platform
 
-cd..
-npx create-react-app client
-cd client
+A MERN-based full-stack application that allows users to sign up, log in, post updates on a feed, and manage personal tasks using a simple todo/task manager.
 
-Install Packages (Frontend/client)
-multer (store files)
-- npm install multer
+---
 
-material UI ( styling and react packages) (Frontend/client)
-- npm install @mui/material @emotion/react @emotionstyled axios react-router-dom
+## Features
+
+- **User Authentication** (Signup / Login with JWT)
+- **Feed Posting** (Create and view posts)
+- **Task Manager** (Add, complete, and delete todos)
+- **Material UI** Styling
+- **File Upload Support** with Multer (if implemented)
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, Axios, React Router DOM, Material UI
+- **Backend:** Node.js, Express.js, MongoDB, JWT, Multer
+- **Database:** MongoDB (via Mongoose ODM)
+
+---
+
+npm install @mui/material @emotion/react @emotion/styled axios react-router-dom
+
+cd ../server
+npm install express mongoose dotenv bcryptjs jsonwebtoken cors multer
 
 
-File Structure:
-Client>
-|-src>
-|-src>api>auth.js
-|-src>api>task.js
-|-src>pages>component>Navigation.jsx
-|-src>pages>Dashboard.js
-|-src>pages>Feed.js
-|-src>pages>Login.js
-|-src>pages>Signup.js
-|-src>pages>TaskManager.js
-|-src>pages>TaskManager.css
-|-src>theme.js
-
-Server>
-|-middlware>auth.js
-|-models>Post.js
-|-models>Task.js
-|-models>User.js
-|-routes>auth.js
-|-routes>post.js
-|-routes>task.js
-|-routes>user.js
-.env
-server.js
