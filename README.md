@@ -29,11 +29,12 @@ A full-stack MERN application that combines a simple social feed with a personal
 
 ### Environment variables
 
-Create `dashboard/server/.env` with:
+Copy `dashboard/server/.env.example` to `dashboard/server/.env` and set:
 
 | Variable | Description |
 | --- | --- |
 | `MONGO_URI` | MongoDB connection string |
+| `JWT_SECRET` | Secret used to sign login tokens (required; use a long random string) |
 | `PORT` | API port (optional, defaults to 5000) |
 
 ### Run the API
@@ -90,7 +91,6 @@ dashboard/
 
 ## Notes
 
-- The JWT signing secret is hard-coded in the server for development; it should be moved to an environment variable before any deployment.
 - The Task Manager page currently stores tasks in the browser's `localStorage`; the task API endpoints exist on the server but are not yet used by that page.
 - The feed UI includes edit and delete actions and a friends feed component whose corresponding API endpoints are not yet implemented on the server.
 

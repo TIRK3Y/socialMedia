@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
 const router = express.Router();
-const JWT_SECRET = 'apcwodemo'; // hardcoded for development
 
 // Signup
 router.post('/signup', async (req, res) => {
@@ -28,7 +27,7 @@ router.post('/signup', async (req, res) => {
 
     await user.save();
 
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
     const { password: pw, ...userData } = user.toObject();
 
@@ -53,7 +52,7 @@ router.post('/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
     const { password: pw, ...userData } = user.toObject();
 

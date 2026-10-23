@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = 'apcwodemo'; 
 
 const auth = (req, res, next) => {
   try {
@@ -11,7 +10,7 @@ const auth = (req, res, next) => {
       return res.status(401).json({ message: 'No token, authorization denied' });
     }
 
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded; 
     next();
   } catch (err) {
